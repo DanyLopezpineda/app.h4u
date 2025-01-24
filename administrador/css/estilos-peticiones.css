@@ -1,0 +1,64 @@
+#logo-centro{
+    margin-top: 50px;
+    text-align: center;
+}
+#logo-centro img{
+width: 30%;
+}
+
+.panel-gracias{
+    text-align: center;
+}
+
+
+.panel-formulario form{
+    width: 450px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+}
+
+.panel-formulario input, select, textarea{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border: none;
+}
+
+.panel-formulario textarea{
+    min-width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+.panel-formulario img{
+    width: 200px;
+}
+
+#btn-enviar{
+    background: #31384A;
+    color: #fff;
+    padding: 20px;
+}
+
+#btn-enviar:hover{
+    cursor: pointer;
+}
+
+
+@media(min-width:1024px){
+    #logo-centro img{
+    width: 10%;
+    }
+
+    .panel-gracias h2, h3{
+        font-size: 20px;
+    }
+    
+    
+}
