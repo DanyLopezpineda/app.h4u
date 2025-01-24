@@ -60,7 +60,8 @@ if($varsesion == null || $varsesion = '')
                             $query = "SELECT p.Id_peticiones, p.Nombre, p.Telefono, p.Fecha_Peticion, 
                             pc.Pais, p.Petición
                              FROM tbpeticiones p join
-                             tbcpais pc on p.Pais=pc.codigo_pais where Id_intercesor= $varsesion";
+                             tbcpais pc on p.Pais=pc.codigo_pais where Id_intercesor= $varsesion
+                             AND p.Estado = 1";
                             $resultados = $conexion->query($query);
                             while ($row = $resultados->fetch_assoc()) { 
                         ?>
@@ -72,8 +73,8 @@ if($varsesion == null || $varsesion = '')
                             <td><?php echo $row['Petición']; ?></td>
                             <td class="Edi">
                                 <button type="button" class="btn btn-warning"><a style="text-decoration:none; color:white;" href="editar-peticiones.php?Idpeticiones=<?php echo $row['Id_peticiones']; ?>">Editar</button> 
-                                <button type="button" class="btn btn-success"><a style="text-decoration:none; color:white;" href="#.php?Idpeticiones=<?php echo $row['Id_peticiones']; ?>">Resuelta</button> 
-                                <button type="button" class="btn btn-danger"><a style="text-decoration:none; color:white;" href="#.php?Idpeticiones=<?php echo $row['Id_peticiones']; ?>">Eliminar</a></button>
+                                <button type="button" class="btn btn-success"><a style="text-decoration:none; color:white;" href="resuelta-peticiones.php?Idpeticiones=<?php echo $row['Id_peticiones']; ?>">Resuelta</button> 
+                                <button type="button" class="btn btn-danger"><a style="text-decoration:none; color:white;" href="eliminar-peticiones.php?Idpeticiones=<?php echo $row['Id_peticiones']; ?>">Eliminar</a></button>
                             </td>
                         </tr>
                         <?php

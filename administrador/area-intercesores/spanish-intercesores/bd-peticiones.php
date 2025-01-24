@@ -71,7 +71,9 @@ if($varsesion == null || $varsesion = '')
                                         DATEDIFF(DATE(Now()),Fecha_Peticion) as Conteo
                                         FROM tbpeticiones) as p join
                                         tbcpais pc on p.Pais=pc.codigo_pais
-                                        where conteo < 8 and p.Estado = 1";
+                                        where conteo < 8 and p.Estado = 1 and
+                                        Id_peticiones not in (select Id_peticiones 
+                                        from tbpeticiones_resueltas)";
                             $resultados = $conexion->query($query);
                             while ($row = $resultados->fetch_assoc()) { 
                         ?>
