@@ -56,8 +56,15 @@ if($varsesion == null || $varsesion = '')
                 </thead>
                  <?php
                             include("../../procesos/conexion.php");
-                            $query = "SELECT p.Id_peticiones, p.Nombre, p.Telefono, p.Fecha_Peticion, 
-                            pc.Pais, p.Petición from(
+                            $query = "SELECT p.Id_peticiones, p.Nombre, p.Telefono, p.Fecha_Peticion
+                                        ,pc.Pais , p.Petición
+                                        from `tbpeticiones` As p join
+                                        tbcpais pc on p.Pais=pc.codigo_pais
+                                        where p.Estado = 1
+                                        and p.PermanenteSI_NO = 1
+                                        union ALL
+                                        SELECT p.Id_peticiones, p.Nombre, p.Telefono, p.Fecha_Peticion, 
+                                                                    pc.Pais, p.Petición from(
                                         SELECT 
                                         Id_peticiones,
                                         Fecha_Registro,
