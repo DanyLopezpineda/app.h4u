@@ -38,6 +38,7 @@ if($varsesion == null || $varsesion = '')
         <div class="contenedor">
             <div class="titulo-intercesores">
                 <h2>Peticiones de la Oración - Here4you</h2>
+                <p>“Porque donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos”<br> Mt.18:20 (NVI)</p>
             </div>
         </div>
     </section>
@@ -57,13 +58,13 @@ if($varsesion == null || $varsesion = '')
                  <?php
                             include("../../procesos/conexion.php");
                             $query = "SELECT p.Id_peticiones, p.Nombre, p.Telefono, p.Fecha_Peticion
-                                        ,pc.Pais , p.Petición
+                                        ,'LATINOAMÉRICA' as Pais , p.Petición
                                         from `tbpeticiones` As p join
                                         tbcpais pc on p.Pais=pc.codigo_pais
                                         where p.Estado = 1
                                         and p.PermanenteSI_NO = 1
                                         union ALL
-                                        SELECT p.Id_peticiones, p.Nombre, p.Telefono, p.Fecha_Peticion, 
+                                        SELECT p.Id_peticiones, UPPER(p.Nombre), p.Telefono, p.Fecha_Peticion, 
                                                                     pc.Pais, p.Petición from(
                                         SELECT 
                                         Id_peticiones,
