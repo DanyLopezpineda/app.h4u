@@ -77,7 +77,9 @@ if($varsesion == null || $varsesion = '')
                                         Petición,
                                         Telefono,
                                         DATEDIFF(DATE(Now()),Fecha_Peticion) as Conteo
-                                        FROM tbpeticiones) as p join
+                                        FROM tbpeticiones
+                                        where
+                                        PermanenteSI_NO = 0) as p join
                                         tbcpais pc on p.Pais=pc.codigo_pais
                                         where conteo < 8 and p.Estado = 1 and
                                         Id_peticiones not in (select Id_peticiones 
