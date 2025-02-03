@@ -13,14 +13,15 @@
 </head>
 <body>
 <h2>Upcoming events</h2>
+<div class="contenedor">
 <div class="slider-frame">
         <ul>
             <li><img src="image/imagen1.png" alt=""></li>
-            <li><img src="image/imagen2.png" alt=""></li>
             <li><img src="image/imagen3.png" alt=""></li>
             <li><img src="image/imagen4.png" alt=""></li>
 <li><a href="semana/index.html"><img src="image/imagen6.png" alt=""></a></li>
         </ul>
+    </div>
     </div>
     <section>
         <div class="contenedor">
