@@ -38,7 +38,7 @@ if($varsesion == null || $varsesion = '')
         <div class="contenedor">
             <div class="titulo-intercesores">
                 <h2>Peticiones de la Oración - Here4you</h2>
-                <p>“Porque donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos”<br> Mt.18:20 (NVI)</p>
+                <p>“Porque donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos”<br> MATEO 18:20 (NVI)</p>
             </div>
         </div>
     </section>
@@ -57,19 +57,19 @@ if($varsesion == null || $varsesion = '')
                 </thead>
                  <?php
                             include("../../procesos/conexion.php");
-                            $query = "SELECT p.Id_peticiones, p.Nombre, p.Telefono, p.Fecha_Peticion
+                            $query = "SELECT p.Id_peticiones, p.Nombre, p.Telefono, DATE_FORMAT(p.Fecha_Peticion, '%d/%m/%Y') AS Fecha_Peticiones
                                         ,'LATINOAMÉRICA' as Pais , p.Petición
                                         from `tbpeticiones` As p join
                                         tbcpais pc on p.Pais=pc.codigo_pais
                                         where p.Estado = 1
                                         and p.PermanenteSI_NO = 1
                                         union ALL
-                                        SELECT p.Id_peticiones, UPPER(p.Nombre), p.Telefono, p.Fecha_Peticion, 
+SELECT p.Id_peticiones, UPPER(p.Nombre), p.Telefono, Fecha_Peticiones, 
                                                                     pc.Pais, p.Petición from(
                                         SELECT 
                                         Id_peticiones,
                                         Fecha_Registro,
-                                        Fecha_Peticion,
+                                        DATE_FORMAT(Fecha_Peticion, '%d/%m/%Y') AS Fecha_Peticiones,
                                         Estado,
                                         Idioma,
                                         Nombre,
@@ -91,7 +91,7 @@ if($varsesion == null || $varsesion = '')
                             <td><?php echo $row['Id_peticiones']; ?></td>
                             <td><?php echo $row['Nombre']; ?></td>
                             <td><?php echo $row['Telefono']; ?></td>
-                            <td><?php echo $row['Fecha_Peticion']; ?></td>
+                            <td><?php echo $row['Fecha_Peticiones']; ?></td>
                             <td><?php echo $row['Pais']; ?></td>
                             <td><?php echo $row['Petición']; ?></td>
                         </tr>
