@@ -32,6 +32,10 @@
           flex-wrap: wrap;
 }
 
+#blogs{
+  text-align: center;
+}
+
 #blogs article{
           margin: 15px;
 }
@@ -53,7 +57,7 @@
           #banner img{
                     height: auto;
                     margin-top: -100px;
-          }
+          }        
 }
 
 @media(min-width:1024px){
@@ -65,9 +69,6 @@
           }
           #blogs img{
                     width: 70%;
-          }
-          #blogs h4{
-                    visibility: hidden;
           }
           #blogs article{
                     margin: 0px;
